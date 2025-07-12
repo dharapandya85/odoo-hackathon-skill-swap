@@ -15,11 +15,53 @@
             </div>
             
             <div className="input-content">
-                <input type="email" name="email" placeholder="Enter your email">
-                <input type="password" name="password" placeholder="Enter your password">
+                <form name="input-form" onSubmit="return validateForm()" onreset="resetErrors()">
+                    <p>
+                        <label for="email">E-mail Address:</label>
+                        <input type="email" name="email" placeholder="Enter your email">
+                        <span id="email-error"></span>
+                    </p>
+                    <p>
+                        <label for="password">Password: </label>
+                        <input type="password" name="password" placeholder="Enter your password">
+                        <span id="password-error"></span>
+                    </p>
+                    
+                </form>
+                
             </div>
             
         </div>
-        
+        <script>
+            function validateForm(event){
+                const email=document.getElementById("email").value;
+                const pass=document.getElementById("password").value;
+                
+                const emailErr=document.getElementById("email-error");
+                const passErr=document.getElementById("password-error");
+
+                emailErr.textContent="";
+                passErr.textContent="";
+
+                let isValid=true;
+                if(email===""||
+                    !email.includes("@") || !email.includes(".")){
+                        emailErr.textContent="Please enter a valid email address.";
+                        event.preventDefault();
+                        isValid = false;
+                }
+                if(pass===""||
+                    !pass.length<6){
+                        passErr.textContent="Please enter a valid password with at least 6 charcaters.";
+                        event.preventDefault();
+                        isValid = false;
+                }
+                
+            }
+            function resetErrors(){
+                document.getElementById("email-error");
+                document.getElementById("password-error");
+            }
+        </script>
     </body>
 </html>
