@@ -7,9 +7,27 @@
 </head>
 <body>
     <h1>Messages:</h1>
-    <textarea id="message" name="message" 
+    <div id="message-display"></div>
+    <textarea id="message-input" name="message" 
     placeholder="Write your message here...">
 </textarea><br><br>
-<button type="submit">Send</button>
+<button id="send-button" type="submit">Send</button>
+<script>
+    document.getElementById('send-button').addEventListener('click',function(){
+        const messageInput=document.getElementById('message-input');
+        const messageDisplay=document.getElementById('message-display');
+        const message=messageInput.value.trim();
+
+        if(message){
+            const chatBubble=document.createElement('div');
+            chatBubble.className='chat-bubble';
+            chatBubble.textContent=message;
+            messageDisplay.append(chatBubble);
+            messageInput.value='';
+            messageDisplay.scrollTop=messageDisplay.scrollHeight;
+        }
+    });
+</script>
 </body>
+
 </html>
