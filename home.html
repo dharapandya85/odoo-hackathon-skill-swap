@@ -17,31 +17,63 @@
         <button type="submit">Search</button>
     </form>
 
-    <div class="Listings">
-            <div class="skill-card">
+    <div className="Listings">
+            <div className="skill-card">
                 <h1>JavaScript</h1>
                 <p>Proficient in JavaScript</p>
                 <img src="" alt="User Avatar">
                 <button>Swap</button>
             </div>
-            <div class="skill-card">
+            <div className="skill-card">
                 <h1>Python</h1>
                 <p>Proficient in Python</p>
                 <img src="" alt="User Avatar">
                 <button>Swap</button>
             </div>
-            <div class="skill-card">
+            <div className="skill-card">
                 <h1>PhotoShop</h1>
                 <p>Proficient in Adobe PhotoShop</p>
                 <img src="" alt="User Avatar">
                 <button>Swap</button>
             </div>
-            <div class="skill-card">
+            <div className="skill-card">
                 <h1>Graphic Designer</h1>
                 <p>Proficient in designing UI/UX</p>
                 <img src="" alt="User Avatar">
                 <button>Swap</button>
             </div>
     </div>
+    <script>
+        const skillData=[
+            {name:"JavaScript Dev", description:"Learn to code websites",user:"Marc"},
+            {name:"Python Dev", description:"Learn to build AI Agents",user:"Michell"},
+            {name:"Graphic Designer", description:"Learn to use PhotoShop",user:"Joe Wills"},
+            {name:"PhotoShop Expert", description:"Learn to design websites with modern layouts",user:"Alice"}
+        ];
+        const skillContainer=document.getElementById('listings');
+        function generateSkills(data){
+            data.forEach(item=>{
+                const skill=document.createElement('div');
+                skill.className="skill-card";
+
+                const name=document.createElement('name');
+                name.textContent=item.name;
+
+                const description=document.createElement('description');
+                description.textContent=item.description;
+
+                const user=document.createElement('user');
+                user.textContent=item.user;
+
+                skill.appendChild(name);
+                skill.appendChild(description);
+                skill.appendChild(user);
+
+                skillContainer.appendChild(skill);
+            });
+
+        }
+        generateSkills(skillData);
+    </script>
 </body>
 </html>
