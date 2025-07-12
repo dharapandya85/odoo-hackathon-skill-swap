@@ -1,0 +1,15 @@
+.listings{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+.skill-card{
+    flex: 1 1 calc(33.333% - 16px);
+    background: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+.pagination{
+    display: inline-block;
+}
