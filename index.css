@@ -1,0 +1,12 @@
+.page{
+    justify-content:center;
+    border: 2px solid;
+}
+.button-style{
+    width: 200px;
+    padding: 10px;
+}
+.input-content{
+    width: 200px;
+    padding: 10px;
+}
