@@ -9,7 +9,8 @@
     <div className="top">
         <p>User's Name</p>
         <img src="" alt="Avatar">
-        <button>Edit</button>
+        <div id="editProfile" class="non-editable" contenteditable="false">Edit</div>
+        <button id="saveButton" style="display:none;">Save</button>
     </div>
     <div className="section-1">
         <p>My Skills</p>
@@ -20,5 +21,22 @@
     <div className="section-3">
         <p>Contact Info</p>
     </div>
+    <script>
+        const editProfile=document.getElementById('editProfile');
+        const saveButton=document.getElementById('saveButton');
+
+        editProfile.addEventListener('click',()=>{
+            editProfile.contentEditable="true";
+            editProfile.classList.add('editable');
+            editProfile.classList.remove('non-editable');
+            saveButton.style.display='inline-block';
+        });
+        saveButton.addEventListener('click',()=>{
+            editProfile.contentEditable="false";
+            editProfile.classList.add('non-editable');
+            editProfile.classList.remove('editable');
+            saveButton.style.display='none';
+        });
+    </script>
 </body>
 </html>
